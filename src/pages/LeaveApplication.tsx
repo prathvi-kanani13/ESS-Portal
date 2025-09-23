@@ -6,79 +6,42 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, } from "@/components/ui/dropdown-menu";
-import { ChevronDown, MoreHorizontal, Search } from "lucide-react";
+import { Calendar, CalendarCheck, ChevronDown, MoreHorizontal, Search, Thermometer, Umbrella, Wallet } from "lucide-react";
+import { Card } from "@/components/ui/card";
 
 type Document = {
   id: string;
-  name: string;
-  file: string;
-  documentNo: number;
-  date: string;
+  leaveType: string;
+  appliedPeriod: string;
+  noOfDays: number;
+  approvedOn: string;
   status: "Pending" | "Completed";
 };
 
 const data: Document[] = [
   {
     id: "01",
-    name: "Companys Offer",
-    file: "https://www.producthunt.com",
-    documentNo: 832,
-    date: "Jan 1, 2020",
+    leaveType: "Casual Leave",
+    appliedPeriod: "1 oct to 10 oct 2025",
+    noOfDays: 8,
+    approvedOn: "Jan 1, 2020",
     status: "Pending",
   },
   {
     id: "02",
-    name: "Companys Appointment Letter",
-    file: "https://www.producthunt.com",
-    documentNo: 637,
-    date: "Jan 2, 2020",
-    status: "Pending",
-  },
-  {
-    id: "03",
-    name: "Last 03 Month Bank Statement",
-    file: "https://www.producthunt.com",
-    documentNo: 459,
-    date: "Jan 3, 2020",
-    status: "Completed",
-  },
-  {
-    id: "04",
-    name: "10th Mark sheet",
-    file: "https://www.producthunt.com",
-    documentNo: 547,
-    date: "Jan 4, 2020",
-    status: "Completed",
-  },
-  {
-    id: "05",
-    name: "12th Mark sheet",
-    file: "https://www.producthunt.com",
-    documentNo: 675,
-    date: "Jan 5, 2020",
+    leaveType: "Sick Leave",
+    appliedPeriod: "1 oct to 10 oct 2025",
+    noOfDays: 6,
+    approvedOn: "Jan 2, 2020",
     status: "Completed",
   },
 ];
 
 const columns: ColumnDef<Document>[] = [
   { accessorKey: "id", header: "ID" },
-  { accessorKey: "name", header: "Name" },
-  {
-    accessorKey: "file",  // column is linked to file field in your data
-    header: "View File", // column header text
-    cell: ({ row }) => (  // custom rendering for each cell in this column
-      <a
-        href={row.original.file} // take file link from row data
-        target="_blank"       // open link in a new tab
-        rel="noopener noreferrer" // security best practice, new tab cannot control the page that opened it so this is write only
-        className="text-blue-600 hover:underline"
-      >
-        {row.original.file}
-      </a>
-    ),
-  },
-  { accessorKey: "documentNo", header: "Document No" },
-  { accessorKey: "date", header: "Date" },
+  { accessorKey: "leaveType", header: "Leave Type" },
+  { accessorKey: "appliedPeriod", header: "Applied Period" },
+  { accessorKey: "approvedOn", header: "Approved On" },
   {
     accessorKey: "status",
     header: "Status",
@@ -97,7 +60,7 @@ const columns: ColumnDef<Document>[] = [
   },
 ];
 
-export default function Kyc() {
+export default function LeaveApplication() {
   const table = useReactTable({
     data,
     columns,
@@ -106,6 +69,54 @@ export default function Kyc() {
 
   return (
     <div className="rounded-md bg-white mx-6 my-6 px-6 py-6 shadow-sm">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 p-6">
+
+        <Card className="rounded-xl shadow-md bg-[#FBEDE7] border-none h-15 flex flex-row items-center justify-between px-6">
+          <h3 className="text-md font-semibold text-[#181819E5]">
+            PLANNED LEAVES
+          </h3>
+          <div>
+            <Calendar className="h-5 w-5 text-[#FF6422]" />
+          </div>
+        </Card>
+
+        <Card className="rounded-xl shadow-md bg-[#E1F5FD] border-none h-15 flex flex-row items-center justify-between px-6">
+          <h3 className="text-md font-semibold text-[#181819E5]">
+            CASUAL LEAVES
+          </h3>
+          <div className="relative">
+            <Umbrella className="h-5 w-5 text-[#4A4DE6]" />
+          </div>
+        </Card>
+
+        <Card className=" rounded-xl shadow-md bg-[#F2E7FC] border-none h-15 flex flex-row items-center justify-between px-6">
+          <h3 className="text-md font-semibold text-[#181819E5]">
+            SICK LEAVES
+          </h3>
+          <div className="relative">
+            <Thermometer className="h-5 w-5 text-[#8C18E2]" />
+          </div>
+        </Card>
+
+        <Card className=" rounded-xl shadow-md bg-[#4CAF5026] border-none h-15 flex flex-row items-center justify-between px-6">
+          <h3 className="text-md font-semibold text-[#181819E5]">
+            OPTIONAL LEAVES
+          </h3>
+          <div className="relative">
+            <CalendarCheck className="h-5 w-5 text-[#4CAF50]" />
+          </div>
+        </Card>
+
+        <Card className=" rounded-xl shadow-md bg-[#4CAF5026] border-none h-15 flex flex-row items-center justify-between px-6">
+          <h3 className="text-md font-semibold text-[#181819E5]">
+            LEAVE WITHOUT PAY
+          </h3>
+          <div className="relative">
+            <Wallet className="h-5 w-5 text-[#4CAF50]" />
+          </div>
+        </Card>
+      </div>
+
       <div className="flex items-center justify-between px-4 py-4 border-b-2 border-[#E5E9EB]">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

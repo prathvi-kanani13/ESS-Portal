@@ -11,93 +11,55 @@ import { ChevronDown, MoreHorizontal, Search } from "lucide-react";
 type Document = {
   id: string;
   name: string;
-  file: string;
-  documentNo: number;
-  date: string;
-  status: "Pending" | "Completed";
+  mobileNo: number;
+  DocumentNo: number;
+  dateofBirth: string;
+  lifeCertificate: "Pending" | "Completed";
 };
 
 const data: Document[] = [
   {
     id: "01",
-    name: "Companys Offer",
-    file: "https://www.producthunt.com",
-    documentNo: 832,
-    date: "Jan 1, 2020",
-    status: "Pending",
+    name: "Father Name",
+    mobileNo: 8326578998,
+    DocumentNo: 832,
+    dateofBirth: "Jan 1, 2020",
+    lifeCertificate: "Pending",
   },
   {
     id: "02",
-    name: "Companys Appointment Letter",
-    file: "https://www.producthunt.com",
-    documentNo: 637,
-    date: "Jan 2, 2020",
-    status: "Pending",
-  },
-  {
-    id: "03",
-    name: "Last 03 Month Bank Statement",
-    file: "https://www.producthunt.com",
-    documentNo: 459,
-    date: "Jan 3, 2020",
-    status: "Completed",
-  },
-  {
-    id: "04",
-    name: "10th Mark sheet",
-    file: "https://www.producthunt.com",
-    documentNo: 547,
-    date: "Jan 4, 2020",
-    status: "Completed",
-  },
-  {
-    id: "05",
-    name: "12th Mark sheet",
-    file: "https://www.producthunt.com",
-    documentNo: 675,
-    date: "Jan 5, 2020",
-    status: "Completed",
+    name: "Mother Name",
+    DocumentNo: 637,
+    mobileNo: 6376565657,
+    dateofBirth: "Jan 2, 2020",
+    lifeCertificate: "Completed",
   },
 ];
 
 const columns: ColumnDef<Document>[] = [
   { accessorKey: "id", header: "ID" },
   { accessorKey: "name", header: "Name" },
+  { accessorKey: "mobileNo", header: "Mobile No" },
+  { accessorKey: "dateofBirth", header: "Date of Birth" },
   {
-    accessorKey: "file",  // column is linked to file field in your data
-    header: "View File", // column header text
-    cell: ({ row }) => (  // custom rendering for each cell in this column
-      <a
-        href={row.original.file} // take file link from row data
-        target="_blank"       // open link in a new tab
-        rel="noopener noreferrer" // security best practice, new tab cannot control the page that opened it so this is write only
-        className="text-blue-600 hover:underline"
-      >
-        {row.original.file}
-      </a>
-    ),
-  },
-  { accessorKey: "documentNo", header: "Document No" },
-  { accessorKey: "date", header: "Date" },
-  {
-    accessorKey: "status",
-    header: "Status",
+    accessorKey: "lifeCertificate",
+    header: "Life Certificate",
     cell: ({ row }) => (
       <Badge
-        variant={row.original.status === "Pending" ? "destructive" : "secondary"}
+        variant={row.original.lifeCertificate === "Pending" ? "destructive" : "secondary"}
         className={`px-3 py-1 rounded-lg text-[18px] font-medium 
-        ${row.original.status === "Completed"
+        ${row.original.lifeCertificate === "Completed"
             ? "bg-green-100 text-green-700 hover:bg-green-200"
             : "bg-red-100 text-red-700 hover:bg-red-200"
           }`}
       >
-        {row.original.status}
+        {row.original.lifeCertificate}
       </Badge>
     ),
   },
 ];
 
-export default function Kyc() {
+export default function Family() {
   const table = useReactTable({
     data,
     columns,

@@ -33,7 +33,7 @@ export const menuSections: MenuSection[] = [
   {
     title: "Organization",
     items: [
-      { label: "Leave Application", icon: Calendar, key: "leave" },
+      { label: "Leave Application", icon: Calendar, key: "leave-application" },
       { label: "PMS", icon: ClipboardCheck, key: "pms" },
       { label: "Work Logs", icon: Clock, key: "worklogs" },
       { label: "Payslip", icon: File, key: "payslip" },

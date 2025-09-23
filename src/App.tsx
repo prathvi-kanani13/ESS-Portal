@@ -1,10 +1,13 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./Layout/Layout";
+import Login from "./pages/Login";
+import ForgotPassword from "./pages/ForgotPassword";
 import Dashboard from "./pages/Dashboard";
 import Kyc from "./pages/Kyc";
 import Education from "./pages/Education";
-import Login from "./pages/Login";
-import ForgotPassword from "./pages/ForgotPassword";
+import Experience from "./pages/Experience";
+import Family from "./pages/Family";
+import LeaveApplication from "./pages/LeaveApplication";
 
 export default function App() {
   return (
@@ -22,6 +25,9 @@ export default function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/kyc-document" element={<Kyc />} />
           <Route path="/education" element={<Education />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/family" element={<Family />} />
+          <Route path="/leave-application" element={<LeaveApplication />} />
         </Route>
 
         {/* Catch-all redirect */}

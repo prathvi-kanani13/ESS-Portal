@@ -20,7 +20,7 @@ type Document = {
 const data: Document[] = [
   {
     id: "01",
-    name: "Companys Offer",
+    name: "Company Name 1",
     file: "https://www.producthunt.com",
     documentNo: 832,
     date: "Jan 1, 2020",
@@ -28,34 +28,10 @@ const data: Document[] = [
   },
   {
     id: "02",
-    name: "Companys Appointment Letter",
+    name: "Company Name 2",
     file: "https://www.producthunt.com",
     documentNo: 637,
     date: "Jan 2, 2020",
-    status: "Pending",
-  },
-  {
-    id: "03",
-    name: "Last 03 Month Bank Statement",
-    file: "https://www.producthunt.com",
-    documentNo: 459,
-    date: "Jan 3, 2020",
-    status: "Completed",
-  },
-  {
-    id: "04",
-    name: "10th Mark sheet",
-    file: "https://www.producthunt.com",
-    documentNo: 547,
-    date: "Jan 4, 2020",
-    status: "Completed",
-  },
-  {
-    id: "05",
-    name: "12th Mark sheet",
-    file: "https://www.producthunt.com",
-    documentNo: 675,
-    date: "Jan 5, 2020",
     status: "Completed",
   },
 ];
@@ -97,7 +73,7 @@ const columns: ColumnDef<Document>[] = [
   },
 ];
 
-export default function Kyc() {
+export default function Experience() {
   const table = useReactTable({
     data,
     columns,
