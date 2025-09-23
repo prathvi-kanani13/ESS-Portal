@@ -1,0 +1,32 @@
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Layout from "./Layout/Layout";
+import Dashboard from "./pages/Dashboard";
+import Kyc from "./pages/Kyc";
+import Education from "./pages/Education";
+import Login from "./pages/Login";
+import ForgotPassword from "./pages/ForgotPassword";
+
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* Default route redirects to login */}
+        <Route path="/" element={<Navigate to="/login" replace />} />
+
+        {/* Login page */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+
+        {/* Protected pages with layout */}
+        <Route path="/" element={<Layout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/kyc-document" element={<Kyc />} />
+          <Route path="/education" element={<Education />} />
+        </Route>
+
+        {/* Catch-all redirect */}
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
+    </Router>
+  );
+}

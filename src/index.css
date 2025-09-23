@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+/* @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap");
+
+@layer utilities {
+  .font-kanit {
+    font-family: "Kanit", sans-serif;
+  }
+} */
+
+/* Hide scrollbar for Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+* {
+  scrollbar-width: none;
+}
