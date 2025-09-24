@@ -8,6 +8,7 @@ import Education from "./pages/Education";
 import Experience from "./pages/Experience";
 import Family from "./pages/Family";
 import LeaveApplication from "./pages/LeaveApplication";
+import Pms from "./pages/Pms";
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/experience" element={<Experience />} />
           <Route path="/family" element={<Family />} />
           <Route path="/leave-application" element={<LeaveApplication />} />
+          <Route path="/pms" element={<Pms />} />
         </Route>
 
         {/* Catch-all redirect */}
