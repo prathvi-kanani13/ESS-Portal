@@ -14,7 +14,7 @@ interface LoginForm {
 }
 
 // Yup validation schema, errors handling
-const schema = yup.object({  
+const schema = yup.object({
   email: yup.string().email("Invalid email").required("Email is required"),
   password: yup
     .string()
@@ -73,6 +73,7 @@ export default function Login() {
                       <Input
                         type="email"
                         placeholder="name@example.com"
+                        autoFocus
                         {...field}
                         className="w-full px-4 py-6 border-[#B2B2B2] rounded-md text-[14px] placeholder:text-[17px] placeholder:text-[#C8C8C8] placeholder:font-medium focus:ring-2 focus:outline-none"
                       />

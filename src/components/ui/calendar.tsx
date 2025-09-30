@@ -148,7 +148,7 @@ function CalendarDayButton({
       data-day={day.date.toLocaleDateString()}
       data-selected={modifiers.selected}
       className={cn(
-        "flex items-center justify-center w-[40px] h-[40px] rounded-md text-sm font-medium transition-colors",
+        "flex items-center justify-center w-[40px] h-[30px] rounded-md text-sm font-medium transition-colors",
         "hover:bg-gray-100",
         "data-[selected=true]:bg-[#FF5630] data-[selected=true]:text-white data-[selected=true]:rounded-md",
         defaultClassNames.day,

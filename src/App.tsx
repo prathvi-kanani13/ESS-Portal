@@ -9,6 +9,8 @@ import Experience from "./pages/Experience";
 import Family from "./pages/Family";
 import LeaveApplication from "./pages/LeaveApplication";
 import Pms from "./pages/Pms";
+import WorkLog from "./pages/WorkLog";
+import PaySlip from "./pages/PaySlip";
 
 export default function App() {
   return (
@@ -30,6 +32,8 @@ export default function App() {
           <Route path="/family" element={<Family />} />
           <Route path="/leave-application" element={<LeaveApplication />} />
           <Route path="/pms" element={<Pms />} />
+          <Route path="/worklogs" element={<WorkLog />} />
+          <Route path="/payslip" element={<PaySlip />} />
         </Route>
 
         {/* Catch-all redirect */}
