@@ -1,19 +1,16 @@
 import * as React from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface TimeOffDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
-export const RequestTimeOffDialog: React.FC<TimeOffDialogProps> = ({
-  open,
-  onOpenChange,
-}) => {
+export const RequestTimeOffDialog: React.FC<TimeOffDialogProps> = ({ open, onOpenChange }) => {
   const [reason, setReason] = React.useState("");
   const [description, setDescription] = React.useState("");
 
@@ -25,7 +22,7 @@ export const RequestTimeOffDialog: React.FC<TimeOffDialogProps> = ({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg p-6">
+      <DialogContent className="w-11/12 max-w-lg p-6 sm:p-8">
         <DialogHeader>
           <DialogTitle className="text-lg font-bold mb-2">
             Time Off Request
@@ -33,13 +30,12 @@ export const RequestTimeOffDialog: React.FC<TimeOffDialogProps> = ({
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          
-          <div className="flex items-center gap-4">
-            <Label htmlFor="reason" className="w-40 text-sm font-medium">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+            <Label htmlFor="reason" className="w-full sm:w-40 text-sm font-medium">
               I need Time off For
             </Label>
             <Select onValueChange={setReason}>
-              <SelectTrigger id="reason" className="flex-1">
+              <SelectTrigger id="reason" className="flex-1 w-full">
                 <SelectValue placeholder="Select reason" />
               </SelectTrigger>
               <SelectContent className="border-[#F0F0F0] bg-[#F9F9F9]">
@@ -49,10 +45,11 @@ export const RequestTimeOffDialog: React.FC<TimeOffDialogProps> = ({
                 <SelectItem value="other">Other</SelectItem>
               </SelectContent>
             </Select>
+
           </div>
 
-          <div className="flex items-center gap-4">
-            <Label htmlFor="description" className="w-40 text-sm font-medium">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+            <Label htmlFor="description" className="w-full sm:w-40 text-sm font-medium">
               Description
             </Label>
             <Input
@@ -60,7 +57,7 @@ export const RequestTimeOffDialog: React.FC<TimeOffDialogProps> = ({
               placeholder="Enter description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="flex-1"
+              className="flex-1 w-full"
             />
           </div>
 

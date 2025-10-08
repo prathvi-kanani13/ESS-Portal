@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Calendar } from "@/components/ui/calendar";
@@ -19,16 +19,15 @@ export const RequestODDDialog: React.FC<ODDDialogProps> = ({ open, onOpenChange 
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg p-6">
+      <DialogContent className="w-11/12 max-w-lg p-6 sm:p-8">
         <DialogHeader>
-          <DialogTitle className="text-lg font-bold">Request ODD</DialogTitle>
+          <DialogTitle className="text-lg font-bold mb-4">Request ODD</DialogTitle>
         </DialogHeader>
 
         <div className="space-y-4">
-
-          <div className="flex items-center gap-4">
-            <label className="w-40 text-sm font-medium">Enter ODD Date</label>
-            <div className="relative flex-1">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+            <label className="w-full sm:w-40 text-sm font-medium">Enter ODD Date</label>
+            <div className="relative flex-1 w-full">
               <Popover>
                 <PopoverTrigger asChild>
                   <div>
@@ -36,7 +35,7 @@ export const RequestODDDialog: React.FC<ODDDialogProps> = ({ open, onOpenChange 
                       readOnly
                       placeholder="Select Date"
                       value={date ? format(date, "dd-MM-yyyy") : ""}
-                      className="cursor-pointer"
+                      className="cursor-pointer w-full"
                     />
                     <CalendarIcon className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
                   </div>
@@ -52,16 +51,16 @@ export const RequestODDDialog: React.FC<ODDDialogProps> = ({ open, onOpenChange 
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
-            <label className="w-40 text-sm font-medium">Enter Time</label>
-            <div className="flex flex-1 items-center gap-5">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+            <label className="w-full sm:w-40 text-sm font-medium">Enter Time</label>
+            <div className="flex flex-row flex-1 gap-2 w-full">
               <Input
                 type="time"
                 value={startTime}
                 onChange={(e) => setStartTime(e.target.value)}
                 className="flex-1"
               />
-              <span className="text-sm">To</span>
+              <span className="text-sm self-center">To</span>
               <Input
                 type="time"
                 value={endTime}
@@ -73,7 +72,7 @@ export const RequestODDDialog: React.FC<ODDDialogProps> = ({ open, onOpenChange 
         </div>
 
         <DialogFooter>
-          <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+          <Button className="bg-blue-500 hover:bg-blue-600 text-white w-full sm:w-auto mt-2 sm:mt-0">
             Submit
           </Button>
         </DialogFooter>

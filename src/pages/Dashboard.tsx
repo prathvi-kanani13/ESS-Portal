@@ -8,7 +8,7 @@ import { CalendarCard } from "../crads/CalendarCard";
 export default function Dashboard() {
 
     return (
-        <div className="flex flex-col gap-6 w-full px-12 py-6 mb-4">
+        <div className="flex flex-col gap-6 w-full px-4 sm:px-6 md:px-12 py-4 sm:py-6 mb-4">
             {/* stats card */}
             <StatsCard />
 

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Calendar } from "@/components/ui/calendar";
@@ -13,32 +13,25 @@ interface WFHDialogProps {
   onOpenChange: (open: boolean) => void;
 }
 
-export const RequestWFHDialog: React.FC<WFHDialogProps> = ({
-  open,
-  onOpenChange,
-}) => {
+export const RequestWFHDialog: React.FC<WFHDialogProps> = ({ open, onOpenChange }) => {
   const [date, setDate] = React.useState<DateRange | undefined>(undefined);
 
   const displayValue =
     date?.from && date?.to
-      ? `${format(date.from, "dd-MM-yyyy")} to ${format(
-          date.to,
-          "dd-MM-yyyy"
-        )}`
+      ? `${format(date.from, "dd-MM-yyyy")} to ${format(date.to, "dd-MM-yyyy")}`
       : "";
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg p-6">
+      <DialogContent className="w-11/12 max-w-lg p-6 sm:p-8">
         <DialogHeader>
-          <DialogTitle className="text-lg font-bold">WFH Request</DialogTitle>
+          <DialogTitle className="text-lg font-bold mb-4">WFH Request</DialogTitle>
         </DialogHeader>
 
         <div className="space-y-4">
-
-          <div className="flex items-center gap-4">
-            <label className="w-40 text-sm font-medium">I need WFH For</label>
-            <div className="relative flex-1">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+            <label className="w-full sm:w-40 text-sm font-medium">I need WFH For</label>
+            <div className="relative flex-1 w-full">
               <Popover>
                 <PopoverTrigger asChild>
                   <div className="relative">
@@ -46,7 +39,7 @@ export const RequestWFHDialog: React.FC<WFHDialogProps> = ({
                       readOnly
                       placeholder="Select Date Range"
                       value={displayValue}
-                      className="cursor-pointer pr-9"
+                      className="cursor-pointer pr-9 w-full"
                     />
                     {date && (
                       <X
@@ -83,14 +76,14 @@ export const RequestWFHDialog: React.FC<WFHDialogProps> = ({
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
-            <label className="w-40 text-sm font-medium">Description</label>
-            <Input placeholder="Enter description" className="flex-1" />
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+            <label className="w-full sm:w-40 text-sm font-medium">Description</label>
+            <Input placeholder="Enter description" className="flex-1 w-full" />
           </div>
         </div>
 
         <DialogFooter>
-          <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+          <Button className="bg-blue-500 hover:bg-blue-600 text-white w-full sm:w-auto mt-2 sm:mt-0">
             Submit
           </Button>
         </DialogFooter>

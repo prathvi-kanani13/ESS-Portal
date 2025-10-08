@@ -1,6 +1,20 @@
 import * as React from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, } from "@/components/ui/dialog";
-import { Check, User, Calendar, Leaf, Clock, MapPin, Coffee, Moon } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
+  Check,
+  User,
+  Calendar,
+  Leaf,
+  Clock,
+  MapPin,
+  Coffee,
+  Moon,
+} from "lucide-react";
 
 interface AttendanceItem {
   label: string;
@@ -14,7 +28,11 @@ interface AttendanceDialogProps {
   data?: AttendanceItem[];
 }
 
-export const AttendanceDialog: React.FC<AttendanceDialogProps> = ({ open, onOpenChange, data }) => {
+export const AttendanceDialog: React.FC<AttendanceDialogProps> = ({
+  open,
+  onOpenChange,
+  data,
+}) => {
   const defaultData: AttendanceItem[] = [
     { label: "Present", value: 0, icon: Check },
     { label: "Absent", value: 0, icon: User },
@@ -30,23 +48,29 @@ export const AttendanceDialog: React.FC<AttendanceDialogProps> = ({ open, onOpen
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md p-6">
+      <DialogContent className="max-w-md w-[90%] sm:w-[400px] md:w-[500px] p-4 sm:p-6 rounded-lg max-h-[80vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-lg font-bold">Attendance Details</DialogTitle>
+          <DialogTitle className="text-lg font-bold text-center sm:text-left">
+            Attendance Details
+          </DialogTitle>
         </DialogHeader>
+
         <div className="mt-4 flex flex-col space-y-2">
           {attendanceData.map((item, index) => (
             <div
               key={index}
-              className="flex items-center justify-between p-2 bg-gray-100 rounded-md"
-            >
-              <div className="flex items-center gap-1">
+              className=" flex items-center justify-between p-2 sm:p-3 bg-gray-100 rounded-md">
+              <div className="flex items-center gap-1 sm:gap-2">
                 <div className="p-2 rounded-full">
-                  <item.icon className="w-6 h-6 text-gray-700" />
+                  <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
                 </div>
-                <span className="font-medium text-[#333333]">{item.label}</span>
+                <span className="font-medium text-[#333333] text-sm sm:text-base">
+                  {item.label}
+                </span>
               </div>
-              <span className="text-gray-600 font-medium">{item.value}</span>
+              <span className="text-gray-600 font-medium text-sm sm:text-base">
+                {item.value}
+              </span>
             </div>
           ))}
         </div>
